@@ -6,5 +6,8 @@ object Files {
   def lines(in: String): Seq[String] =
     val source = Source.fromFile(in)
     source.getLines().toSeq
-    
+
+  def all(in: String): String =
+    val source = Source.fromFile(in)
+    source.mkString
 }
