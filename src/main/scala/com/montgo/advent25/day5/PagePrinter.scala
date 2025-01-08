@@ -14,7 +14,7 @@ case class PrintPoint(point: Int, before: Seq[Int], after: Seq[Int])
 
 object PagePrinter {
 
-  val EMPTY:(Seq[Int], Seq[Int]) = (Seq(), Seq())
+  private val EMPTY:(Seq[Int], Seq[Int]) = (Seq(), Seq())
 
   def parseInput(in:Seq[String]): (Seq[(Int, Int)], Seq[Seq[Int]]) = {
     in.foldLeft( Seq[(Int, Int)](), Seq[Seq[Int]]())  { (i, x) =>
