@@ -1,5 +1,7 @@
 package com.montgo.advent25.util
 
+import scala.annotation.targetName
+
 type MatrixVector[T] = Vector[Vector[T]]
 
 case class Point(row: Int, col: Int) {
@@ -7,6 +9,15 @@ case class Point(row: Int, col: Int) {
   def down: Point = Point(row+1, col)
   def left: Point = Point(row, col-1)
   def right: Point = Point(row, col+1)
+
+  @`inline`
+  @targetName("add")
+  def +(o: Point): Point = Point(row + o.row, col + o.col)
+
+  @`inline`
+  @targetName("subtract")
+  def -(o: Point): Point = Point(row - o.row, col - o.col)
+
 }
 
 

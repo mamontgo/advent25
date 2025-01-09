@@ -1,7 +1,7 @@
-package com.montgo.advent25.pay6
+package com.montgo.advent25.day6
 
-import com.montgo.advent25.pay6.Dir.{DOWN, LEFT, RIGHT, UP}
-import com.montgo.advent25.pay6.Position.{Direction, Obstacle}
+import com.montgo.advent25.day6.Dir.{DOWN, LEFT, RIGHT, UP}
+import com.montgo.advent25.day6.Position.{Direction, Obstacle}
 import com.montgo.advent25.util.{Matrix, Point}
 
 import scala.annotation.tailrec
