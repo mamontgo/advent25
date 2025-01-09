@@ -3,11 +3,10 @@ package com.montgo.advent25.day6
 import com.montgo.advent25.util.{Files, Matrix, Point}
 import org.scalatest.funsuite.AnyFunSuite
 import com.montgo.advent25.pay6.Guard.*
-import com.montgo.advent25.pay6.{Navigate, Position}
+import com.montgo.advent25.pay6.Position
 import com.montgo.advent25.pay6.Position.{Obstacle, Space}
 import com.montgo.advent25.util.Matrix.*
 import com.montgo.advent25.util.MatrixVector
-import org.scalatest.Ignore
 
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.duration.Duration
