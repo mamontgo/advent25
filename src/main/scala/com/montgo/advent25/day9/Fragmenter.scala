@@ -72,6 +72,7 @@ object Fragmenter {
         else
           compact(parts._1 ++ Seq(newFileBlock, newSpace) ++ parts._2.tail, unmovable)
 
+
   def asDiskSeq(in: Seq[DiskItem]): Seq[DiskSeq] =
     in.flatMap {
       case FileBlock(c, id, _) => FunctionUtil.repeat(FileSeq(id), c.toInt)
@@ -91,7 +92,7 @@ object Fragmenter {
   def checksum(in: Seq[DiskSeq]): Long =
     in.zipWithIndex.map { (v, i) =>
       v match
-        case FileSeq(id) => id.toLong * i.toLong
+        case FileSeq(id) => id * i.toLong
         case _ => 0L
     }.sum
 

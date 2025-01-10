@@ -4,6 +4,13 @@ import scala.annotation.targetName
 
 type MatrixVector[T] = Vector[Vector[T]]
 
+object Nav {
+  val EAST: Point = Point(0, 1)
+  val WEST: Point = Point(0, -1)
+  val NORTH: Point = Point(-1, 0)
+  val SOUTH: Point = Point(1, 0)
+}
+
 case class Point(row: Int, col: Int) {
   def up: Point = Point(row-1, col)
   def down: Point = Point(row+1, col)
