@@ -10,4 +10,7 @@ object FunctionUtil {
       case _ => init
     }
   }
+
+  @tailrec def repeat[T](i:T, count:Int, resp: Seq[T] = Seq()): Seq[T] =
+    if count == 0 then resp else repeat(i, count -1, resp :+ i)
 }
