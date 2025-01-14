@@ -6,7 +6,7 @@ import com.montgo.advent25.util.Nav.*
 import scala.annotation.tailrec
 object TrailHead {
 
-  val DIRS: Seq[Point] = Seq(EAST, WEST, SOUTH, NORTH)
+
   val END = 9
 
   def read(in: Seq[String]): Matrix[Int] =
@@ -21,7 +21,7 @@ object TrailHead {
     else
       val x = m.get(p.head)
       if (x == END) nav(m)(p.tail, res :+ p.head)
-      else nav(m)(p.tail ++ DIRS.map(_+p.head).filter(m.inRange).filter(p => m.get(p)==x+1), res)
+      else nav(m)(p.tail ++ ADJACENT_DIRS.map(_+p.head).filter(m.inRange).filter(p => m.get(p)==x+1), res)
 
 
 

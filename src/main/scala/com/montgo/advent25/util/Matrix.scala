@@ -9,6 +9,14 @@ object Nav {
   val WEST: Point = Point(0, -1)
   val NORTH: Point = Point(-1, 0)
   val SOUTH: Point = Point(1, 0)
+
+  val NORTH_WEST: Point = Point(-1, -1)
+  val NORTH_EAST: Point = Point(-1, 1)
+  val SOUTH_WEST: Point = Point(1, -1)
+  val SOUTH_EAST: Point = Point(1, 1)
+
+
+  val ADJACENT_DIRS: Seq[Point] = Seq(EAST, WEST, SOUTH, NORTH)
 }
 
 case class Point(row: Int, col: Int) {
@@ -31,7 +39,7 @@ case class Point(row: Int, col: Int) {
 case class Matrix[T](data: MatrixVector[T]) {
   lazy val width: Int = data.head.length
   lazy val height: Int = data.length
-
+  def apply(p: Point): T = get(p)
   def get(row: Int, col:Int): T = data(row)(col)
   def get(p:Point): T = get(p.row, p.col)
   def inRange(row: Int, col:Int): Boolean = row >= 0 && row < height && col >= 0 && col < width
