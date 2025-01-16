@@ -25,6 +25,8 @@ case class Point(row: Int, col: Int) {
   def left: Point = Point(row, col-1)
   def right: Point = Point(row, col+1)
 
+  def map(f: Point => Point): Point = f(this)
+
   @`inline`
   @targetName("add")
   def +(o: Point): Point = Point(row + o.row, col + o.col)
@@ -33,6 +35,7 @@ case class Point(row: Int, col: Int) {
   @targetName("subtract")
   def -(o: Point): Point = Point(row - o.row, col - o.col)
 
+  def invert: Point = Point(col, row)
 }
 
 
