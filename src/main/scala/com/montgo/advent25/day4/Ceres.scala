@@ -5,7 +5,7 @@ import scala.annotation.tailrec
 
 
 case class LineCollector[T](matrix: Matrix[T], point: Point, nextRow: Int => Int, nextCol: Int => Int) {
-  private def nextPoint(): Point = Point(nextRow(point.row), nextCol(point.col))
+  private def nextPoint(): Point = Point(nextRow(point.row.toInt), nextCol(point.col.toInt))
   def getNext: Option[LineCollector[T]] =
     val next = nextPoint()
     if matrix.inRange(next) then

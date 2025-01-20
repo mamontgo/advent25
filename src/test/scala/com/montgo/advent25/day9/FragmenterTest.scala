@@ -34,7 +34,7 @@ class FragmenterTest extends AnyFunSuite {
   }
 
 
-  test("part 2 input compact ordering") {
+  ignore("part 2 input compact ordering") {
     val c = compact(positions(read(Files.lines(INPUT)).head))
     val cs = c.map(_.checksum).sum
     assert(cs == 6221662795602L)

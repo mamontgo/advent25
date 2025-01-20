@@ -1,6 +1,6 @@
 package com.montgo.advent25.day8
 
-import com.montgo.advent25.util.{Matrix, Point}
+import com.montgo.advent25.util.{MapUtil, Matrix, Point}
 
 import scala.annotation.tailrec
 
@@ -15,10 +15,7 @@ object Resonant {
     Matrix(in.map(_.map(c => if c == '.' then Antenna(None) else Antenna(Some(c))).toVector).toVector)
 
   def antennaMap(in: Matrix[Antenna]): Map[Char, Seq[Point]] =
-    in.find(_.value.isDefined).foldLeft(Map[Char, Seq[Point]]()) { (i, v) =>
-      val key = in.get(v).value.get
-      i + i.get(key).map(s => key -> (s :+ v)).getOrElse(key -> Seq(v))
-    }
+    MapUtil.mapGroup(in.find(_.value.isDefined), in.get(_).value.get)
 
   def setAllAntinodePoints(matrix: Matrix[Antenna]): Matrix[Antenna] =
     antennaMap(matrix).values.flatMap(allAntinodePoints(matrix)).filter(matrix.inRange).foldLeft(matrix) { (o, v) =>
