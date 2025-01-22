@@ -50,6 +50,9 @@ case class Matrix[T](data: MatrixVector[T]) {
   def outRange(p:Point): Boolean = !inRange(p.row, p.col)
   def value(p:Point): Option[T]  = if inRange(p) then Some(get(p)) else None
   def update(p:Point, v: T): Matrix[T] = Matrix(data.updated(p.row.toInt, data(p.row.toInt).updated(p.col.toInt, v)))
+  def swap(x:Point, y:Point): Matrix[T] =
+    val xVal = get(x)
+    this.update(x, get(y)).update(y, xVal)
   def find(f: T => Boolean): Seq[Point] =
     (0 until width).foldLeft(Seq[Point]()) { (i, c) =>
       i ++ (0 until height).foldLeft(Seq[Point]()) { (i2, r) =>
