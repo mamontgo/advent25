@@ -1,6 +1,5 @@
 package com.montgo.advent25.day15
 
-import com.montgo.advent25.day14.Robot
 import com.montgo.advent25.util.{Matrix, Nav, Point}
 import com.montgo.advent25.util.Matrix.*
 
@@ -11,7 +10,6 @@ enum Dir {
   case Down
   case Left
   case Right
-
 }
 
 object Dir {
@@ -29,6 +27,7 @@ object Dir {
 }
 
 case class WarehouseState(m: Matrix[Char], loc: Point, instructions: Seq[Dir]) {
+
   def get(p: Point): Char = m(p)
   def removeInstruction(): WarehouseState = this.copy(instructions = instructions.tail)
   def expand: WarehouseState =

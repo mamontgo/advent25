@@ -25,6 +25,8 @@ case class Point(row: Long, col: Long) {
   def left: Point = Point(row, col-1)
   def right: Point = Point(row, col+1)
 
+  def perform(f: Long => Long): Point = Point(f(row), f(col))
+  
   def map(f: Point => Point): Point = f(this)
 
   @`inline`

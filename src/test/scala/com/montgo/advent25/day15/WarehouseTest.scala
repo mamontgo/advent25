@@ -2,7 +2,7 @@ package com.montgo.advent25.day15
 
 import org.scalatest.funsuite.AnyFunSuite
 import Warehouse.*
-import com.montgo.advent25.util.{Files, Nav, Point}
+import com.montgo.advent25.util.Files
 import com.montgo.advent25.util.Matrix.*
 
 class WarehouseTest extends AnyFunSuite {
